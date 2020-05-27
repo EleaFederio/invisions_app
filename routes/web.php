@@ -17,7 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'CustomerController@index')->name('home');
 
 Route::Resource('/products', 'ProductController');
 Route::Resource('/employees', 'EmployeeController');
+Route::Resource('/customers', 'CustomerController');

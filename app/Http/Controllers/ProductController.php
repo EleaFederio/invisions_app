@@ -38,13 +38,16 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $fileName = null;
-//        dd($request->all());
+        dd($request->all());
 
         $validator = Validator::make($request->all(), [
             'product_picture' => 'max:5000',
-            'product_name' => 'required',
+//            'product_name' => 'required',
             'details' => 'required',
-            'customer' => 'required'
+            'quantity' => 'required',
+            'price' => 'required',
+            'details' => 'required'
+//            'customer' => 'required'
         ]);
 
 //        dd($request->all());

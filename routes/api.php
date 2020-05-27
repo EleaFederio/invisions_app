@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('employee_register', "Api\ApiEmployeeController@register");
 Route::post('employee_login', "Api\ApiEmployeeController@login");
 
-Route::apiResource('product', 'Api\ApiProductController');
+//Route::apiResource('product', 'Api\ApiProductController');
 
 Route::group(['prefix' => 'product'], function () {
     Route::apiResource('/{product}/process', 'Api\ApiProcessController',[

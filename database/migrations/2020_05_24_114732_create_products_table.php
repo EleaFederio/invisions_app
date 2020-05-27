@@ -17,7 +17,10 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('product_name');
             $table->string('details');
-            $table->string('customer');
+            $table->integer('quantity');
+            $table->double('price');
+            $table->bigInteger('customer_id')->unsigned()->index();
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->string('picture')->nullable();
             $table->timestamps();
         });
