@@ -29,8 +29,16 @@ Route::group(['prefix' => 'product'], function () {
     ]);
 });
 
-Route::group(['prefix' => 'employee'], function () {
-    Route::apiResource('/{employee}/process', 'Api\ApiProcessController',[
-        'only' => ['update', 'store']
+Route::Resource('/customers', 'Api\ApiCustomerController');
+Route::group(['prefix' => 'customers'], function () {
+    Route::apiResource('/{customers}/products', 'ProductController',[
+        'only' => ['index']
     ]);
 });
+
+
+//Route::group(['prefix' => 'employee'], function () {
+//    Route::apiResource('/{employee}/process', 'Api\ApiProcessController',[
+//        'only' => ['update', 'store']
+//    ]);
+//});

@@ -7,7 +7,7 @@
 <div class="wrapper d-flex align-items-stretch">
     @include('partials.sidebar')
 
-    <div id="content" class="p-4 p-md-5 pt-5">
+    <div id="content" class="p-4 p-md-5 pt-5" style="margin-left: 250px">
         @yield('content')
     </div>
 

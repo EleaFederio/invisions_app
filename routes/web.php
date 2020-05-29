@@ -19,6 +19,12 @@ Route::get('/', function () {
 
 Route::get('/', 'CustomerController@index')->name('home');
 
-Route::Resource('/products', 'ProductController');
+//Route::Resource('/products', 'ProductController');
 Route::Resource('/employees', 'EmployeeController');
-Route::Resource('/customers', 'CustomerController');
+Route::Resource('/customers', 'CustomerController'
+);
+Route::group(['prefix' => 'customers'], function () {
+    Route::Resource('/{customers}/products', 'ProductController', [
+        'only' => ['store', 'update']
+    ]);
+});

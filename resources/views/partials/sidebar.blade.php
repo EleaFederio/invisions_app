@@ -1,4 +1,4 @@
-<nav id="sidebar" >
+<nav id="sidebar" style="position: fixed; height: 100%">
     <div class="custom-menu">
         <button type="button" id="sidebarCollapse" class="btn btn-primary">
             <i class="fa fa-bars"></i>
@@ -6,7 +6,7 @@
         </button>
     </div>
     <div class="p-4 pt-5">
-        <h1><a href="/" class="logo">INVASION</a></h1>
+        <h1><a href="/" class="logo">INVISIONS</a></h1>
         <ul class="list-unstyled components mb-5">
             <li>
                 <a href="/">Home</a>
@@ -15,7 +15,7 @@
                 <a href="/employees">Employees</a>
             </li>
             <li>
-                <a href="{{route('products.index')}}">Products</a>
+{{--                <a href="{{route('products.index')}}">Products</a>--}}
             </li>
             <li>
                 <a href="#myAccount" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">My Account</a>

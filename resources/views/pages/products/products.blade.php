@@ -20,33 +20,33 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{route('products.store')}}" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" name="product_name" class="form-control" id="exampleFormControlInput1">
-                        </div>
-                        <div class="form-group">
-                            <label>Details</label>
-                            <textarea class="form-control" name="details" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Customer</label>
-                            <input type="text" name="customer" class="form-control">
-                        </div>
-                        <div class="book-pic">
+{{--                <form action="{{route('products.store')}}" method="post" enctype="multipart/form-data">--}}
+{{--                    @csrf--}}
+{{--                    <div class="modal-body">--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label>Name</label>--}}
+{{--                            <input type="text" name="product_name" class="form-control" id="exampleFormControlInput1">--}}
+{{--                        </div>--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label>Details</label>--}}
+{{--                            <textarea class="form-control" name="details" rows="3"></textarea>--}}
+{{--                        </div>--}}
+{{--                        <div class="form-group">--}}
+{{--                            <label>Customer</label>--}}
+{{--                            <input type="text" name="customer" class="form-control">--}}
+{{--                        </div>--}}
+{{--                        <div class="book-pic">--}}
 {{--                            <img src=" {{ url('images/nobookcover.jpg') }} " id="bookpic" alt="" width="350">--}}
-                            <img src="{{ url('images/nobookcover.png') }}" id="productPic" alt="" width="350" style="border: 3px solid #ddd;">
-                            <input type="file" onchange="imagePreview.call(this)" id="file" name="product_picture"  value="upload picture">
-                            <label for="file" class="file-button" ><i class="fas fa-camera-retro" style="paddin-right:10px"></i> Choose a photo</label>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                </form>
+{{--                            <img src="{{ url('images/nobookcover.png') }}" id="productPic" alt="" width="350" style="border: 3px solid #ddd;">--}}
+{{--                            <input type="file" onchange="imagePreview.call(this)" id="file" name="product_picture"  value="upload picture">--}}
+{{--                            <label for="file" class="file-button" ><i class="fas fa-camera-retro" style="paddin-right:10px"></i> Choose a photo</label>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="modal-footer">--}}
+{{--                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
+{{--                        <button type="submit" class="btn btn-primary">Save</button>--}}
+{{--                    </div>--}}
+{{--                </form>--}}
             </div>
         </div>
     </div>

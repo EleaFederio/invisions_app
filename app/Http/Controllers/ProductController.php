@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use App\Product;
 use Illuminate\Http\Request;
 use Validator;
@@ -13,10 +14,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $products = Product::all();
-        return view('pages/products/products')->with('products', $products);
+        $customer = Customer::find($id);
+
+        return $customer->products;
     }
 
     /**
@@ -35,10 +37,10 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $fileName = null;
-        dd($request->all());
+//        dd($customer);
 
         $validator = Validator::make($request->all(), [
             'product_picture' => 'max:5000',
@@ -64,14 +66,22 @@ class ProductController extends Controller
                 $file->move($savePath, $fileName);
             }
 
+//            dd($request->quantity);
+            $request->request->add(['customer_id' => Customer::find($id)->id]);
+//            dd($request->category);
+
             Product::create([
-                'product_name' => $request->product_name,
+                'quantity' => $request->quantity,
+                'price' => $request->price,
                 'details' => $request->details,
-                'customer' => $request->customer,
+                'customer_id' => $request->customer_id,
+                'category' => $request->category,
                 'picture' => $fileName
             ]);
+//            dd($fileName);
+//            $customer->products()->save($request->all());
             $products = Product::all();
-            return view('pages/products/products')->with('products', $products);
+            return back()->with('products', $products);
 
         }else{
 //            return redirect()->back()->with(['errors' => $validator->errors()->all()]);
@@ -88,7 +98,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('pages/products/view')->with('product', $product);
+        dd($product);
+//        return view('pages/products/view')->with('product', $product);
     }
 
     /**
