@@ -141,7 +141,9 @@
                                                 temp += '<td><center><p style="margin-bottom: 0px">Price</p><p>'+u.price+'</p></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Total</p><p>'+u.quantity*u.price+'</p></center></td>';
                                                 temp += '<td><p style="margin-bottom: 0px">Details</p><p>'+u.details+'</p></td>';
-                                                temp += '<td><button type="button" class="btn btn-info btn-sm editModalShow" id="'+u.id+'" data-toggle="modal"  data-target="#editOrderModal"><i class="fas fa-edit"></i></button> <button type="button" class="btn btn-danger btn-sm " id="'+u.id+'" data-toggle="modal"  data-target="#"><i class="fas fa-trash-alt"></i></i></button></td></tr>';
+                                                temp += '<td><button type="button" class="btn btn-info btn-sm editModalShow{{$customer->id}}" id="'+u.id+'" data-toggle="modal"  data-target="#editOrderModal"><i class="fas fa-edit"></i></button> ' +
+                                                    {{--'<form  action="{{ route('products.destroy' , $customer->id, 1) }}" method="POST"> @csrf @method('DELETE') <button type="submit" name="submit" class="btn btn-danger btn-sm"  id=""><i class="fas fa-trash-alt"></i></button></form></td></tr>';--}}
+                                                    '<form  method="POST"> @csrf @method('DELETE') <button type="submit" name="submit" class="btn btn-danger btn-sm"  id=""><i class="fas fa-trash-alt"></i></button></form></td></tr>';
                                             })
                                             document.getElementById("data{{$customer->id}}").innerHTML = temp;
                                         }
@@ -149,6 +151,30 @@
                                 )
                             }
                         )
+
+                        $(document).on('click', '.editModalShow{{$customer->id}}', function () {
+                            var customer = "{{$customer->id}}";
+                            var id = $(this).attr('id');
+                            var route = "http://127.0.0.1:8000/api/customers/"+customer+"/products/"+id;
+                            var updateRoute = "http://127.0.0.1:8000/customers/"+customer+"/products/"+id;
+                            $('#editForm').attr('action', updateRoute);
+
+                            $.ajax({
+                                url: route,
+                                dataType: 'json',
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                },
+                                success: function(data) {
+                                    console.log(data);
+                                    $('#quantity').val(data.product.quantity);
+                                    $('#details').val(data.product.details);
+                                    $('#price').val(data.product.price);
+                                    $('#category').val(data.product.category);
+                                    $('#productPic2').attr('src', 'http://127.0.0.1:8000/images/'+data.product.picture);
+                                },
+                            });
+                        });
                     </script>
                 </td>
                 <td style="vertical-align: top">
@@ -404,32 +430,6 @@
             }
             reader.readAsDataURL(event.target.files[0]);
         }
-
-
-
-        $(document).on('click', '.editModalShow', function () {
-            var customer = "{{$customer->id}}";
-            var id = $(this).attr('id');
-            var route = "http://127.0.0.1:8000/api/customers/"+customer+"/products/"+id;
-            var updateRoute = "http://127.0.0.1:8000/customers/"+customer+"/products/"+id;
-            $('#editForm').attr('action', updateRoute);
-
-            $.ajax({
-                url: route,
-                dataType: 'json',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(data) {
-                    console.log(data);
-                    $('#quantity').val(data.product.quantity);
-                    $('#details').val(data.product.details);
-                    $('#price').val(data.product.price);
-                    $('#category').val(data.product.category);
-                    $('#productPic2').attr('src', 'http://127.0.0.1:8000/images/'+data.product.picture);
-                },
-            });
-        });
 
     </script>
 

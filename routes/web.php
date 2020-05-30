@@ -25,7 +25,7 @@ Route::Resource('/customers', 'CustomerController'
 );
 Route::group(['prefix' => 'customers'], function () {
     Route::Resource('/{customers}/products', 'ProductController', [
-        'only' => ['store', 'update']
+        'only' => ['store', 'update', 'destroy']
     ]);
 });
 
