@@ -31,8 +31,8 @@ Route::group(['prefix' => 'product'], function () {
 
 Route::Resource('/customers', 'Api\ApiCustomerController');
 Route::group(['prefix' => 'customers'], function () {
-    Route::apiResource('/{customers}/products', 'ProductController',[
-        'only' => ['index']
+    Route::apiResource('/{customers}/products', 'Api\ApiProductController',[
+        'only' => ['index', 'show']
     ]);
 });
 

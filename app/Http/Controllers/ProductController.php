@@ -40,7 +40,7 @@ class ProductController extends Controller
     public function store(Request $request, $id)
     {
         $fileName = null;
-//        dd($customer);
+//        return $request;
 
         $validator = Validator::make($request->all(), [
             'product_picture' => 'max:5000',
@@ -110,7 +110,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+
     }
 
     /**
@@ -120,9 +120,19 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update($id1, $id2, Request $request)
     {
-        //
+        return $request;
+//        $customer = Customer::find($id1);
+//        $selectedProduct = $customer->products()->find($id2);
+//        $selectedProduct->details = $request->details;
+//        $selectedProduct->quantity = $request->quantity;
+//        $selectedProduct->price = $request->price;
+//        $selectedProduct->category = $request->category;
+//        $selectedProduct->picture = $request->picture;
+//        $selectedProduct->save();
+//        $customer = Customer::find($id1);
+//        return back()->with('customers', $customer);
     }
 
     /**

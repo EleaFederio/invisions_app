@@ -132,6 +132,38 @@
             setInterval(() => {
                 updateChart();
             }, 1000);
+
+
+            $(document).on('click', '.editModalShow', function () {
+                var id = $(this).attr('id');
+                var route = "http://127.0.0.1:8000/api/customers/"+id;
+                var updateRoute = "http://127.0.0.1:8000/customers/"+id;
+                $('#editForm').attr('action', updateRoute);
+
+                $.ajax({
+                    url: route,
+                    dataType: 'json',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(data) {
+                        // console.log(data);
+                        $('#first_name').val(data.customer.first_name);
+                        $('#last_name').val(data.customer.last_name);
+                        $('#fb_name').val(data.customer.fb_name);
+                        $('#phone_number').val(data.customer.phone_number);
+                        $('#company_name').val(data.customer.company_name);
+                        $('#province').val(data.customer.province);
+                        $('#town').val(data.customer.town);
+                        $('#barangay').val(data.customer.barangay);
+                        $('#location_details').val(data.customer.location_details);
+                        $('#editAction').action('haaaaaaaaaaa');
+                        console.log(data.customer.first_name);
+                    },
+                });
+            });
+
+
         </script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 {{--        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>--}}

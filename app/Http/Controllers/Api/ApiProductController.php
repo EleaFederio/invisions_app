@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Customer;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
@@ -13,9 +14,10 @@ class ApiProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return Product::all();
+        $customer = Customer::find($id);
+        return $customer->products;
     }
 
     /**
@@ -45,9 +47,13 @@ class ApiProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($userId, $productId)
     {
-        //
+        $customer = Customer::find($userId);
+        return response()->json([
+            'success' => true,
+            'product' => $customer->products()->find($productId)
+        ]);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Process;
+use App\Product;
 use Illuminate\Http\Request;
 
 class ProcessController extends Controller
@@ -33,9 +34,11 @@ class ProcessController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Product $product)
     {
-        //
+        $process = new Process($request->all());
+        $product->processes()->save($process);
+        return view('pages/products/view')->with('product', $product);
     }
 
     /**

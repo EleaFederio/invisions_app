@@ -28,3 +28,9 @@ Route::group(['prefix' => 'customers'], function () {
         'only' => ['store', 'update']
     ]);
 });
+
+Route::group(['prefix' => 'products'], function () {
+    Route::resource('/{product}/process', 'ProcessController', [
+        'only' => ['show', 'store', 'update', 'destroy']
+    ]);
+});

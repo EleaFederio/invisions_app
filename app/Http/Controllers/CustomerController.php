@@ -62,7 +62,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+
     }
 
     /**
@@ -74,7 +74,18 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $customer->first_name = $request->first_name;
+        $customer->last_name = $request->last_name;
+        $customer->fb_name = $request->fb_name;
+        $customer->phone_number = $request->phone_number;
+        $customer->company_name = $request->company_name;
+        $customer->province = $request->province;
+        $customer->town = $request->town;
+        $customer->barangay = $request->location_details;
+        $customer->location_details = $request->first_name;
+        $customer->save();
+        $customers = Customer::all()->sortByDesc('id');
+        return view('pages/customers/index')->with('customers', $customers);
     }
 
     /**
@@ -83,8 +94,10 @@ class CustomerController extends Controller
      * @param  \App\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy($id)
     {
-        //
+        Customer::destroy($id);
+        $customers = Customer::all()->sortByDesc('id');
+        return view('pages/customers/index')->with('customers', $customers);
     }
 }
