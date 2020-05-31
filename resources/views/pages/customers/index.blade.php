@@ -136,7 +136,8 @@
                                             var temp = "";
                                             data.forEach((u)=>{
                                                 temp += '<tr>';
-                                                temp += '<td style="margin-bottom: 0px"><img src="http://127.0.0.1:8000/images/'+u.picture+'" width="200"></td>';
+                                                var image_url = u.picture == null ? 'image_not_available.png': u.picture;
+                                                temp += '<td style="margin-bottom: 0px"><img src="http://127.0.0.1:8000/images/'+image_url+'" width="200"></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Quantity</p><p>'+u.quantity+'</p></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Price</p><p>'+u.price+'</p></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Total</p><p>'+u.quantity*u.price+'</p></center></td>';
@@ -154,7 +155,6 @@
 
                         $(document).on('click', '.editCustomerModalShow{{$customer->id}}', function () {
                             var customer = "{{$customer->id}}";
-                            alert('Jdfdfdfdfd');
                             var id = $(this).attr('id');
                             var route = "http://127.0.0.1:8000/api/customers/"+customer+"/products/"+id;
                             var updateRoute = "http://127.0.0.1:8000/customers/"+customer+"/products/"+id;
@@ -172,7 +172,8 @@
                                     $('#details').val(data.product.details);
                                     $('#price').val(data.product.price);
                                     $('#category').val(data.product.category);
-                                    $('#productPic2').attr('src', 'http://127.0.0.1:8000/images/'+data.product.picture);
+                                    var preview_image_url = data.product.picture  == null ? 'image_not_available.png' : data.product.picture;
+                                    $('#productPic2').attr('src', 'http://127.0.0.1:8000/images/'+preview_image_url);
                                 },
                             });
                         });
@@ -371,7 +372,7 @@
                         <div class="form-group">
                             <label>Mock-Up Picture</label>
                             <img src="{{ url('images/image_not_available.png') }}" id="productPic2" alt="" width="465" style="border: 3px solid #ddd;">
-                            <input type="file" id="file2" name="product_picture"  value="upload picture">
+                            <input type="file" onchange="imagePreview2.call(this)" id="file2" name="product_picture"  value="upload picture">
                             <label for="file2" class="file-button" ><i class="fas fa-camera-retro" style="padding-right:10px"></i> Choose a photo</label>
                         </div>
                     </div>
@@ -436,6 +437,17 @@
         function imagePreview(){
             var reader = new FileReader();
             var imageField = document.getElementById("productPic");
+            reader.onload = function(){
+                if(reader.readyState == 2){
+                    imageField.src = reader.result;
+                }
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function imagePreview2(){
+            var reader = new FileReader();
+            var imageField = document.getElementById("productPic2");
             reader.onload = function(){
                 if(reader.readyState == 2){
                     imageField.src = reader.result;

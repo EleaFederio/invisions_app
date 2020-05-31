@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0a6c3091-c751-4334-a9bd-95c112bff1af" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/customers/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/customers/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/pages/customers/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
-              <caret line="385" selection-start-line="385" selection-end-line="385" />
+            <state relative-caret-position="215">
+              <caret line="175" column="115" selection-start-line="175" selection-start-column="115" selection-end-line="175" selection-end-column="115" />
               <folding>
                 <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#center#0;n#td#0;n#!!top" expanded="true" />
@@ -43,15 +44,6 @@
                 <element signature="e#21726#21757#0#HTML" expanded="true" />
                 <element signature="e#21964#21990#0#HTML" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/pages/customers/view.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2610">
-              <caret line="47" column="65" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -74,23 +66,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="617">
-              <caret line="148" column="12" selection-start-line="148" selection-start-column="12" selection-end-line="148" selection-end-column="12" />
-              <folding>
-                <element signature="e#40#57#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CustomerController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
               <caret line="41" column="53" lean-forward="true" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="141" column="13" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
+              <folding>
+                <element signature="e#40#57#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -110,11 +102,8 @@
       <find>$customer-&gt;id</find>
       <find>1</find>
       <find>sideb</find>
-      <find>imagePreview</find>
       <find>imagePreview2</find>
       <find>file</find>
-      <find>productPic</find>
-      <find>productPic2</find>
       <find>table</find>
       <find>tabl</find>
       <find>data</find>
@@ -126,6 +115,12 @@
       <find>editForm</find>
       <find>editOrderForm</find>
       <find>editCustomerModalShow</find>
+      <find>productPic2</find>
+      <find>product_picture</find>
+      <find>addOrderForm</find>
+      <find>imagePreview</find>
+      <find>productPic</find>
+      <find>Jdfdfdfdfd</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -165,10 +160,10 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/ApiProcessController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_05_24_114732_create_products_table.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/head.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/customers/view.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/customers/view.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/customers/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" />
       </list>
     </option>
   </component>
@@ -270,7 +265,7 @@
       <path value="$PROJECT_DIR$/vendor/laravel/sanctum" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -294,19 +289,6 @@
               <item name="invisions_app" type="b2602c69:ProjectViewProjectNode" />
               <item name="invisions_app" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="invisions_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="invisions_app" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="invisions_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="invisions_app" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="invisions_app" type="b2602c69:ProjectViewProjectNode" />
@@ -408,18 +390,18 @@
       <workItem from="1590718257978" duration="19209000" />
       <workItem from="1590800441730" duration="11935000" />
       <workItem from="1590855290702" duration="3032000" />
-      <workItem from="1590883123920" duration="7234000" />
+      <workItem from="1590883123920" duration="11410000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100114000" />
+    <option name="totallyTimeSpent" value="104290000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20272315" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20272315" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -434,7 +416,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.33977455" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.33977455" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -473,8 +455,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/pages/customers/index.blade.php</url>
-          <line>246</line>
+          <line>247</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/pages/customers/index.blade.php</url>
+          <line>328</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -704,20 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/customers/view.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2610">
-          <caret line="47" column="65" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Customer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -732,10 +705,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/customers/view.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1691">
+          <caret line="138" column="98" selection-start-line="138" selection-start-column="87" selection-end-line="138" selection-end-column="98" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#td#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/pages/customers/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="385" selection-start-line="385" selection-end-line="385" />
+        <state relative-caret-position="215">
+          <caret line="175" column="115" selection-start-line="175" selection-start-column="115" selection-end-line="175" selection-end-column="115" />
           <folding>
             <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#center#0;n#td#0;n#!!top" expanded="true" />
@@ -751,8 +741,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="148" column="12" selection-start-line="148" selection-start-column="12" selection-end-line="148" selection-end-column="12" />
+        <state relative-caret-position="158">
+          <caret line="141" column="13" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
           <folding>
             <element signature="e#40#57#0#PHP" expanded="true" />
           </folding>

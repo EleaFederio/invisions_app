@@ -122,17 +122,46 @@ class ProductController extends Controller
      */
     public function update($id1, $id2, Request $request)
     {
-        return $request;
-//        $customer = Customer::find($id1);
-//        $selectedProduct = $customer->products()->find($id2);
-//        $selectedProduct->details = $request->details;
-//        $selectedProduct->quantity = $request->quantity;
-//        $selectedProduct->price = $request->price;
-//        $selectedProduct->category = $request->category;
-//        $selectedProduct->picture = $request->picture;
-//        $selectedProduct->save();
-//        $customer = Customer::find($id1);
-//        return back()->with('customers', $customer);
+
+//                return $request;
+
+        $fileName = null;
+
+        $validator = Validator::make($request->all(), [
+            'product_picture' => 'image|max:5000|mimes:jpg,jpeg'
+        ]);
+
+        if($validator->passes()){
+
+            if($request->product_picture != null){
+                $dataTime = date('Ymd_His');
+                $file = $request->file('product_picture');
+                $fileName = $dataTime. '-'.rand(00000000, 99999999).'.jpg';
+                $savePath = public_path('/images/');
+                $file->move($savePath, $fileName);
+            }
+
+            $customer = Customer::find($id1);
+            $selectedProduct = $customer->products()->find($id2);
+            $selectedProduct->details = $request->details;
+            $selectedProduct->quantity = $request->quantity;
+            $selectedProduct->price = $request->price;
+            $selectedProduct->category = $request->category;
+            $selectedProduct->picture = $fileName;
+            $selectedProduct->save();
+            $customer = Customer::find($id1);
+            return back()->with('customers', $customer);
+
+            $books = Book::all();
+            return view('pages/books/index')->with('books', $books);
+        }else{
+            return redirect()->back()
+                ->with(['errors'=>$validator->errors()->all()]);
+        }
+
+
+//        return $request;
+
     }
 
     /**
