@@ -143,7 +143,7 @@
                                                 temp += '<td><p style="margin-bottom: 0px">Details</p><p>'+u.details+'</p></td>';
                                                 temp += '<td><button type="button" class="btn btn-info btn-sm editModalShow{{$customer->id}}" id="'+u.id+'" data-toggle="modal"  data-target="#editOrderModal"><i class="fas fa-edit"></i></button> ' +
                                                     {{--'<form  action="{{ route('products.destroy' , $customer->id, 1) }}" method="POST"> @csrf @method('DELETE') <button type="submit" name="submit" class="btn btn-danger btn-sm"  id=""><i class="fas fa-trash-alt"></i></button></form></td></tr>';--}}
-                                                    '<form  method="POST"> @csrf @method('DELETE') <button type="submit" name="submit" class="btn btn-danger btn-sm"  id=""><i class="fas fa-trash-alt"></i></button></form></td></tr>';
+                                                    '<form onSubmit="getUrl({{$customer->id}}, ' + u.id + ')" id="changeDeleteUrl'+u.id+'" method="POST"> @csrf @method('DELETE') <button type="submit" name="submit" class="btn btn-danger btn-sm"  id=""><i class="fas fa-trash-alt"></i></button></form></td></tr>';
                                             })
                                             document.getElementById("data{{$customer->id}}").innerHTML = temp;
                                         }
@@ -419,6 +419,16 @@
                 },
             });
         });
+
+        function getUrl(aaa, bbb) {
+            alert("before");
+            var xxx = '#changeDeleteUrl'+bbb;
+            alert(xxx);
+            $(xxx).attr('action', "{{url('')}}"+"/customers/"+aaa+"/products/"+bbb+"");
+            // document.changeDeleteUrl.action();
+            alert("after");
+            alert("{{url('')}}"+"/customers/"+aaa+"/products/"+bbb+"");
+        }
 
         function imagePreview(){
             var reader = new FileReader();

@@ -141,9 +141,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($customerId, $orderId)
     {
-        Product::destroy($product->id);
-        return view('pages/products/products')->with('products', Product::all());
+            $customer = Customer::find($customerId);
+            $customer->products->find($orderId)->delete();
+            $customers = Customer::all()->sortByDesc('id');
+            return back()->with('customers', $customers);
     }
 }
