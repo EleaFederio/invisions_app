@@ -141,7 +141,7 @@
                                                 temp += '<td><center><p style="margin-bottom: 0px">Price</p><p>'+u.price+'</p></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Total</p><p>'+u.quantity*u.price+'</p></center></td>';
                                                 temp += '<td><p style="margin-bottom: 0px">Details</p><p>'+u.details+'</p></td>';
-                                                temp += '<td><button type="button" class="btn btn-info btn-sm editModalShow{{$customer->id}}" id="'+u.id+'" data-toggle="modal"  data-target="#editOrderModal"><i class="fas fa-edit"></i></button> ' +
+                                                temp += '<td><button type="button" class="btn btn-info btn-sm editCustomerModalShow{{$customer->id}}" id="'+u.id+'" data-toggle="modal"  data-target="#editOrderModal"><i class="fas fa-edit"></i></button> ' +
                                                     {{--'<form  action="{{ route('products.destroy' , $customer->id, 1) }}" method="POST"> @csrf @method('DELETE') <button type="submit" name="submit" class="btn btn-danger btn-sm"  id=""><i class="fas fa-trash-alt"></i></button></form></td></tr>';--}}
                                                     '<form onSubmit="getUrl({{$customer->id}}, ' + u.id + ')" id="changeDeleteUrl'+u.id+'" method="POST"> @csrf @method('DELETE') <button type="submit" name="submit" class="btn btn-danger btn-sm"  id=""><i class="fas fa-trash-alt"></i></button></form></td></tr>';
                                             })
@@ -152,12 +152,13 @@
                             }
                         )
 
-                        $(document).on('click', '.editModalShow{{$customer->id}}', function () {
+                        $(document).on('click', '.editCustomerModalShow{{$customer->id}}', function () {
                             var customer = "{{$customer->id}}";
+                            alert('Jdfdfdfdfd');
                             var id = $(this).attr('id');
                             var route = "http://127.0.0.1:8000/api/customers/"+customer+"/products/"+id;
                             var updateRoute = "http://127.0.0.1:8000/customers/"+customer+"/products/"+id;
-                            $('#editForm').attr('action', updateRoute);
+                            $('#editOrderForm').attr('action', updateRoute);
 
                             $.ajax({
                                 url: route,
@@ -335,7 +336,7 @@
                     </button>
                 </div>
                 {{--                {{dd($customer)}}--}}
-                <form id="editForm" method="post" enctype="multipart/form-data">
+                <form id="editOrderForm" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="modal-body">
@@ -382,6 +383,8 @@
             </div>
         </div>
     </div>
+
+
 
     <script>
 
