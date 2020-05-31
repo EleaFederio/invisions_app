@@ -295,7 +295,7 @@
                                     <div class="form-group">
                                         <select class="form-control" name="category" id="exampleFormControlSelect1" required>
                                             <option value="" disabled selected>Select Type</option>
-                                            <option value="Printed">Printed</option>
+                                            <option value="Printed" selected>Printed</option>
                                             <option value="Plain">Plain</option>
                                         </select>
                                     </div>
