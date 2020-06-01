@@ -138,6 +138,7 @@
                                                 temp += '<tr>';
                                                 var image_url = u.picture == null ? 'image_not_available.png': u.picture;
                                                 temp += '<td style="margin-bottom: 0px"><img src="http://127.0.0.1:8000/images/'+image_url+'" width="200"></td>';
+                                                temp += '<td><center><a href="#" class="btn btn-primary btn-sm"><i class="fas fa-chart-area"></i></a></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Quantity</p><p>'+u.quantity+'</p></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Price</p><p>'+u.price+'</p></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Total</p><p>'+u.quantity*u.price+'</p></center></td>';
@@ -293,7 +294,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <select class="form-control" name="category" id="exampleFormControlSelect1" required>
+                                        <select class="form-control" name="category" id="selectCategory" required>
                                             <option value="" disabled selected>Select Type</option>
                                             <option value="Printed" selected>Printed</option>
                                             <option value="Plain">Plain</option>
@@ -310,7 +311,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="hidePicBox">
                             <label>Mock-Up Picture</label>
                             <img src="{{ url('images/image_not_available.png') }}" id="productPic" alt="" width="465" style="border: 3px solid #ddd;">
                             <input type="file" onchange="imagePreview.call(this)" id="file" name="product_picture"  value="upload picture">
@@ -462,6 +463,19 @@
             }
             reader.readAsDataURL(event.target.files[0]);
         }
+        
+        $(function () {
+            $('#selectCategory').change(function () {
+                var selectedCategoryItem = $("#selectCategory option:selected").text();
+                if (selectedCategoryItem == 'Plain'){
+                    $( "#hidePicBox" ).hide( "slow", function() {
+                    });
+                }else {
+                    $( "#hidePicBox" ).show( "slow", function() {
+                    });
+                }
+            })
+        })
 
     </script>
 

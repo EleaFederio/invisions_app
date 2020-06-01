@@ -9,22 +9,25 @@
         <h1><a href="/" class="logo">INVISIONS</a></h1>
         <ul class="list-unstyled components mb-5">
             <li>
-                <a href="/">Home</a>
+                <a href="/"><i class="fas fa-home"></i>     Home</a>
             </li>
             <li>
-                <a href="/employees">Employees</a>
+                <a href="{{route('employees.index')}}"><i class="fas fa-address-card"></i>     Employees</a>
             </li>
             <li>
+                <a href="{{route('employees.index')}}"><i class="fas fa-bell"></i>     Notifications</a>
+            </li>
+            <!-- <li>
 {{--                <a href="{{route('products.index')}}">Products</a>--}}
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
                 <a href="#myAccount" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">My Account</a>
                 <ul class="collapse list-unstyled" id="myAccount">
                     <li>
                         <a href="{{ url('/change_password') }}">Settings</a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
         </ul>
 
 

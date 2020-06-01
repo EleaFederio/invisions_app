@@ -9,46 +9,6 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add a Product</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="{{route('products.store')}}" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" name="product_name" class="form-control" id="exampleFormControlInput1">
-                        </div>
-                        <div class="form-group">
-                            <label>Details</label>
-                            <textarea class="form-control" name="details" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Customer</label>
-                            <input type="text" name="customer" class="form-control">
-                        </div>
-                        <div class="book-pic">
-                            {{--                            <img src=" {{ url('images/nobookcover.jpg') }} " id="bookpic" alt="" width="350">--}}
-{{--                            <img src="{{ url('images/nobookcover.png') }}" id="productPic" alt="" width="350" style="border: 3px solid #ddd;">--}}
-                            <input type="file" onchange="imagePreview.call(this)" id="file" name="product_picture"  value="upload picture">
-                            <label for="file" class="file-button" ><i class="fas fa-camera-retro" style="paddin-right:10px"></i> Choose a photo</label>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <br><br>
 
 
 
@@ -69,11 +29,11 @@
         @foreach ($employees as $employees)
             <tr>
                 <td>{{ $employees->id }}</td>
-                <td>{{ $employees->first_name }}</td>
+                <td>{{ $employees->full_name }}</td>
                 <td>{{ $employees->phone_number }}</td>
-                <td><a href="{{ route('employees.show' , $employees->id) }}" class="btn btn-primary btn-sm">View</a></td>
+                <td><a href="{{ route('employees.show' , $employees->id) }}" class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a></td>
 {{--                <td><a href="{{ route('employees.edit' , $employees->id) }}" class="btn btn-secondary btn-sm">Edit</a></td>--}}
-                <td><form action="{{ route('employees.destroy' , $employees->id) }}" method="POST"> @csrf @method('DELETE') <input type="submit" name="submit" value="Delete" class="btn btn-danger btn-sm" id=""> </form></td>
+                <td><form action="{{ route('employees.destroy' , $employees->id) }}" method="POST"> @csrf @method('DELETE') <button type="submit" name="submit" value="Delete" class="btn btn-danger btn-sm" id=""><i class="fas fa-trash-alt"></i></td></form>
             </tr>
         @endforeach
         </tbody>
