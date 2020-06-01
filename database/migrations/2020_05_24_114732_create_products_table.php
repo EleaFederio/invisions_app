@@ -22,7 +22,8 @@ class CreateProductsTable extends Migration
             $table->bigInteger('customer_id')->unsigned()->index();
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->string('picture')->nullable();
-            $table->string('status')->nullable();
+            $table->date('due_date')->nullable();
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

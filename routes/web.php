@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/', 'CustomerController@index')->name('home');
+Route::get('settings', 'SettingsController@index');
 
 //Route::Resource('/products', 'ProductController');
 Route::Resource('/employees', 'EmployeeController');

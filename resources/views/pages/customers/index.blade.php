@@ -1,7 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{{--    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--}}
+
     <h1>Customers List</h1>
 
 
@@ -284,21 +286,29 @@
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Details</label>
                             <div class="row">
                                 <div class="col-3">
+                                    <label>Details</label>
                                     <input type="text" name="quantity" class="form-control" placeholder="Quantity" required>
                                 </div>
                                 <div class="col-3">
+                                    <label>Price</label>
                                     <input type="text" name="price" class="form-control" placeholder="Price" required>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-3">
+                                    <label>Category</label>
                                     <div class="form-group">
                                         <select class="form-control" name="category" id="selectCategory" required>
                                             <option value="" disabled selected>Select Type</option>
                                             <option value="Printed" selected>Printed</option>
                                             <option value="Plain">Plain</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <label>Due Date</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="datepicker">
                                     </div>
                                 </div>
                             </div>
@@ -386,8 +396,6 @@
         </div>
     </div>
 
-
-
     <script>
 
         $(document).on('click', '.newOrder', function () {
@@ -426,13 +434,9 @@
         });
 
         function getUrl(aaa, bbb) {
-            alert("before");
             var xxx = '#changeDeleteUrl'+bbb;
-            alert(xxx);
             $(xxx).attr('action', "{{url('')}}"+"/customers/"+aaa+"/products/"+bbb+"");
             // document.changeDeleteUrl.action();
-            alert("after");
-            alert("{{url('')}}"+"/customers/"+aaa+"/products/"+bbb+"");
         }
 
         function imagePreview(){
@@ -476,6 +480,10 @@
                 }
             })
         })
+
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
 
     </script>
 

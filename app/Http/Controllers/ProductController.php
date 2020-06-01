@@ -100,7 +100,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         dd($product);
-//        return view('pages/products/view')->with('product', $product);
+        return view('pages/products/view')->with('product', $product);
     }
 
     /**

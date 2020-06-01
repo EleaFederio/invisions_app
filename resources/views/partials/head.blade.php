@@ -4,6 +4,7 @@
 <script src="https://kit.fontawesome.com/7a7ce10af7.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 
@@ -11,7 +12,7 @@
 
 <link rel="stylesheet" href={{ url("/css/bootstrap.css") }}>
 <link rel="stylesheet" href={{ url("/css/app.css") }}>
-<link rel="stylesheet" href={{ url("/css/jquery-ui.css") }}>
+{{--<link rel="stylesheet" href={{ url("/css/jquery-ui.css") }}>--}}
 <link rel="stylesheet" href={{ url("/css/Chart.min.css") }}>
 
 <style>
