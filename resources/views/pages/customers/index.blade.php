@@ -141,7 +141,7 @@
                                                 temp += '<td><center><p style="margin-bottom: 0px">Quantity</p><p>'+u.quantity+'</p></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Price</p><p>'+u.price+'</p></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Total</p><p>'+u.quantity*u.price+'</p></center></td>';
-                                                temp += '<td><p style="margin-bottom: 0px">Details</p><p>'+u.details+'</p></td>';
+                                                temp += '<td><p style="margin-bottom: 0px">Details</p><p>'+u.details+'</p><div data-countdown="2016/01/01"></div></td>';
                                                 temp += '<td><button type="button" class="btn btn-info btn-sm editCustomerModalShow{{$customer->id}}" id="'+u.id+'" data-toggle="modal"  data-target="#editOrderModal"><i class="fas fa-edit"></i></button> ' +
                                                     {{--'<form  action="{{ route('products.destroy' , $customer->id, 1) }}" method="POST"> @csrf @method('DELETE') <button type="submit" name="submit" class="btn btn-danger btn-sm"  id=""><i class="fas fa-trash-alt"></i></button></form></td></tr>';--}}
                                                     '<form onSubmit="getUrl({{$customer->id}}, ' + u.id + ')" id="changeDeleteUrl'+u.id+'" method="POST"> @csrf @method('DELETE') <button type="submit" name="submit" class="btn btn-danger btn-sm"  id=""><i class="fas fa-trash-alt"></i></button></form></td></tr>';
@@ -444,6 +444,13 @@
             }
             reader.readAsDataURL(event.target.files[0]);
         }
+
+        $('[data-countdown]').each(function() {
+            var $this = $(this), finalDate = $(this).data('countdown');
+            $this.countdown(finalDate, function(event) {
+                $this.html(event.strftime('%D days %H:%M:%S'));
+            });
+        });
 
         function imagePreview2(){
             var reader = new FileReader();

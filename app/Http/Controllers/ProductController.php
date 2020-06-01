@@ -128,7 +128,7 @@ class ProductController extends Controller
         $fileName = null;
 
         $validator = Validator::make($request->all(), [
-            'product_picture' => 'image|max:5000|mimes:jpg,jpeg'
+            'product_picture' => 'image'
         ]);
 
         if($validator->passes()){
