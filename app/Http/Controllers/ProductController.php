@@ -70,13 +70,14 @@ class ProductController extends Controller
 //            dd($request->quantity);
             $request->request->add(['customer_id' => Customer::find($id)->id]);
 //            dd($request->category);
-
+//            dd($request->due_date);
             Product::create([
                 'quantity' => $request->quantity,
                 'price' => $request->price,
                 'details' => $request->details,
                 'customer_id' => $request->customer_id,
                 'category' => $request->category,
+                'due_date' => $request->due_date,
                 'picture' => $fileName
             ]);
 //            dd($fileName);

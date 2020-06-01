@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{{--    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">--}}
 {{--    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--}}
 
     <h1>Customers List</h1>
@@ -308,7 +308,7 @@
                                 <div class="col-3">
                                     <label>Due Date</label>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="datepicker">
+                                        <input type="text" name="due_date" class="form-control" id="datepicker">
                                     </div>
                                 </div>
                             </div>
@@ -482,7 +482,7 @@
         })
 
         $( function() {
-            $( "#datepicker" ).datepicker();
+            $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
         } );
 
     </script>
