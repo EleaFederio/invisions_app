@@ -15,7 +15,7 @@
 
 <link rel="stylesheet" href={{ url("/css/bootstrap.css") }}>
 <link rel="stylesheet" href={{ url("/css/app.css") }}>
-{{--<link rel="stylesheet" href={{ url("/css/jquery-ui.css") }}>--}}
+<script src="{{ url("/js/jquery.countdown.min.js") }}" ></script>
 <link rel="stylesheet" href={{ url("/css/Chart.min.css") }}>
 
 <style>

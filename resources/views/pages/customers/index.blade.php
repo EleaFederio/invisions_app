@@ -6,7 +6,7 @@
 
     <h1>Customers List</h1>
 
-<div id="getting-started"></div>
+{{--<div id="getting-started"></div>--}}
 
 
     <!-- Button trigger modal -->
@@ -141,7 +141,7 @@
                                             data.forEach((u)=>{
                                                 temp += '<tr>';
                                                 var image_url = u.picture == null ? 'image_not_available.png': u.picture;
-                                                temp += '<td style="margin-bottom: 0px"><img src="http://127.0.0.1:8000/images/'+image_url+'" width="200"></td>';
+                                                temp += '<td style="margin-bottom: 0px"><img src="http://127.0.0.1:8000/images/'+image_url+'" width="200"><div id="getting-started"></div></td>';
                                                 temp += '<td><center><a href="#" class="btn btn-primary btn-sm"><i class="fas fa-chart-area"></i></a></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Quantity</p><p>'+u.quantity+'</p></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Price</p><p>₱ '+u.price+'</p></center></td>';
@@ -538,7 +538,7 @@
 
     <script type="text/javascript">
         $("#getting-started")
-            .countdown("2017/01/01", function(event) {
+            .countdown("2020/06/03", function(event) {
                 $(this).text(
                     event.strftime('%D days %H:%M:%S')
                 );
