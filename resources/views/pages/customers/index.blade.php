@@ -6,6 +6,8 @@
 
     <h1>Customers List</h1>
 
+<div id="getting-started"></div>
+
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
@@ -142,9 +144,11 @@
                                                 temp += '<td style="margin-bottom: 0px"><img src="http://127.0.0.1:8000/images/'+image_url+'" width="200"></td>';
                                                 temp += '<td><center><a href="#" class="btn btn-primary btn-sm"><i class="fas fa-chart-area"></i></a></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Quantity</p><p>'+u.quantity+'</p></center></td>';
-                                                temp += '<td><center><p style="margin-bottom: 0px">Price</p><p>'+u.price+'</p></center></td>';
-                                                temp += '<td><center><p style="margin-bottom: 0px">Total</p><p>'+u.quantity*u.price+'</p></center></td>';
+                                                temp += '<td><center><p style="margin-bottom: 0px">Price</p><p>₱ '+u.price+'</p></center></td>';
+                                                temp += '<td><center><p style="margin-bottom: 0px">Category</p><p>'+u.category+'</p></center></td>';
+                                                temp += '<td><center><p style="margin-bottom: 0px">Total</p><p>₱ '+u.quantity*u.price+'</p></center></td>';
                                                 temp += '<td><p style="margin-bottom: 0px">Details</p><p>'+u.details+'</p><div data-countdown="2016/01/01"></div></td>';
+                                                temp += '<td><center><p style="margin-bottom: 0px">Status</p><h6><span class="badge badge-secondary">'+u.status+'</span></h6></center></td>';
                                                 temp += '<td><button type="button" class="btn btn-info btn-sm editCustomerModalShow{{$customer->id}}" id="'+u.id+'" data-toggle="modal"  data-target="#editOrderModal"><i class="fas fa-edit"></i></button> ' +
                                                     {{--'<form  action="{{ route('products.destroy' , $customer->id, 1) }}" method="POST"> @csrf @method('DELETE') <button type="submit" name="submit" class="btn btn-danger btn-sm"  id=""><i class="fas fa-trash-alt"></i></button></form></td></tr>';--}}
                                                     '<form onSubmit="getUrl({{$customer->id}}, ' + u.id + ')" id="changeDeleteUrl'+u.id+'" method="POST"> @csrf @method('DELETE') <button type="submit" name="submit" class="btn btn-danger btn-sm"  id=""><i class="fas fa-trash-alt"></i></button></form></td></tr>';
@@ -175,6 +179,8 @@
                                     $('#details').val(data.product.details);
                                     $('#price').val(data.product.price);
                                     $('#category').val(data.product.category);
+                                    $('#status').val(data.product.status);
+                                    $('#due_date').val(data.product.due_date);
                                     var preview_image_url = data.product.picture  == null ? 'image_not_available.png' : data.product.picture;
                                     $('#productPic2').attr('src', 'http://127.0.0.1:8000/images/'+preview_image_url);
                                 },
@@ -282,7 +288,7 @@
                     </button>
                 </div>
                 {{--                {{dd($customer)}}--}}
-                <form id="addOrderForm" method="post" enctype="multipart/form-data">
+                <form id="addOrderForm" method="post" enctype="multipart/form-data" autocomplete="off">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
@@ -295,7 +301,7 @@
                                     <label>Price</label>
                                     <input type="text" name="price" class="form-control" placeholder="Price" required>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-6">
                                     <label>Category</label>
                                     <div class="form-group">
                                         <select class="form-control" name="category" id="selectCategory" required>
@@ -305,10 +311,26 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-6">
                                     <label>Due Date</label>
                                     <div class="form-group">
                                         <input type="text" name="due_date" class="form-control" id="datepicker">
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <label>Status</label>
+                                    <div class="form-group">
+                                        <select class="form-control" name="status" id="selectCategory" required>
+                                            <option value="" disabled selected>Select Status</option>
+                                            <option value="For Design" selected>For Design</option>
+                                            <option value="For Approval">For Approval</option>
+                                            <option value="For Revision">For Revision</option>
+                                            <option value="For Sizing">For Sizing</option>
+                                            <option value="For Print">For Print</option>
+                                            <option value="For Pick-Up">For Pick-Up</option>
+                                            <option value="Delivered">Delivered</option>
+                                            <option value="Canceled">Canceled</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -348,7 +370,7 @@
                     </button>
                 </div>
                 {{--                {{dd($customer)}}--}}
-                <form id="editOrderForm" method="post" enctype="multipart/form-data">
+                <form id="editOrderForm" method="post" enctype="multipart/form-data" autocomplete="off">
                     @csrf
                     @method('PUT')
                     <div class="modal-body">
@@ -367,6 +389,28 @@
                                             <option value="" disabled selected>Select Type</option>
                                             <option value="Printed">Printed</option>
                                             <option value="Plain">Plain</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label>Due Date</label>
+                                    <div class="form-group">
+                                        <input type="text" name="due_date" id="due_date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <label>Status</label>
+                                    <div class="form-group">
+                                        <select class="form-control" name="status" id="status" required>
+                                            <option value="" disabled selected>Select Status</option>
+                                            <option value="For Design" selected>For Design</option>
+                                            <option value="For Approval">For Approval</option>
+                                            <option value="For Revision">For Revision</option>
+                                            <option value="For Sizing">For Sizing</option>
+                                            <option value="For Print">For Print</option>
+                                            <option value="For Pick-Up">For Pick-Up</option>
+                                            <option value="Delivered">Delivered</option>
+                                            <option value="Canceled">Canceled</option>
                                         </select>
                                     </div>
                                 </div>
@@ -485,6 +529,20 @@
             $( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
         } );
 
+        $( function() {
+            $( "#due_date" ).datepicker({ dateFormat: 'yy-mm-dd' }).val();
+        } );
+
+    </script>
+
+
+    <script type="text/javascript">
+        $("#getting-started")
+            .countdown("2017/01/01", function(event) {
+                $(this).text(
+                    event.strftime('%D days %H:%M:%S')
+                );
+            });
     </script>
 
 @endsection

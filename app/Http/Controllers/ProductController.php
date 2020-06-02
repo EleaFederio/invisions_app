@@ -78,6 +78,7 @@ class ProductController extends Controller
                 'customer_id' => $request->customer_id,
                 'category' => $request->category,
                 'due_date' => $request->due_date,
+                'status' => $request->status,
                 'picture' => $fileName
             ]);
 //            dd($fileName);
@@ -149,7 +150,11 @@ class ProductController extends Controller
             $selectedProduct->quantity = $request->quantity;
             $selectedProduct->price = $request->price;
             $selectedProduct->category = $request->category;
-            $selectedProduct->picture = $fileName;
+            $selectedProduct->due_date = $request->due_date;
+            $selectedProduct->status = $request->status;
+            if ($request->product_picture != ''){
+                $selectedProduct->picture = $fileName;
+            }
             $selectedProduct->save();
             $customer = Customer::find($id1);
             return back()->with('customers', $customer);

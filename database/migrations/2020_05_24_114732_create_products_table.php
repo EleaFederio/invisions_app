@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->string('picture')->nullable();
             $table->date('due_date')->nullable();
-            $table->integer('status')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
