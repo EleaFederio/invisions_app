@@ -93,15 +93,21 @@ class ProductController extends Controller
 
     }
 
+    public function showAll(){
+        $products = Product::all()->sortBy('due_date');
+        return view('pages/products/show_all')->with('products', $products);
+    }
+
     /**
      * Display the specified resource.
      *
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($customerId, $productId)
     {
-        dd($product);
+        $customer = Customer::find($customerId);
+        $product = $customer->products()->find($productId);
         return view('pages/products/view')->with('product', $product);
     }
 

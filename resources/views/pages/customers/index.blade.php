@@ -142,7 +142,7 @@
                                                 temp += '<tr>';
                                                 var image_url = u.picture == null ? 'image_not_available.png': u.picture;
                                                 temp += '<td style="margin-bottom: 0px"><img src="http://127.0.0.1:8000/images/'+image_url+'" width="200"><div id="getting-started"></div></td>';
-                                                temp += '<td><center><a href="#" class="btn btn-primary btn-sm"><i class="fas fa-chart-area"></i></a></center></td>';
+                                                temp += '<td><center><a href="{{url('')}}/customers/{{$customer->id}}/products/'+u.id+'" class="btn btn-primary btn-sm"><i class="fas fa-chart-area"></i></a></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Quantity</p><p>'+u.quantity+'</p></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Price</p><p>₱ '+u.price+'</p></center></td>';
                                                 temp += '<td><center><p style="margin-bottom: 0px">Category</p><p>'+u.category+'</p></center></td>';

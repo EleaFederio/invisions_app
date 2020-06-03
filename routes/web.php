@@ -24,14 +24,16 @@ Route::get('settings', 'SettingsController@index');
 Route::Resource('/employees', 'EmployeeController');
 Route::Resource('/customers', 'CustomerController'
 );
+
 Route::group(['prefix' => 'customers'], function () {
     Route::Resource('/{customers}/products', 'ProductController', [
-        'only' => ['store', 'update', 'destroy']
+        'only' => ['show', 'store', 'update', 'destroy']
     ]);
 });
 
+Route::get('/products_all', 'ProductController@showAll');
 Route::group(['prefix' => 'products'], function () {
     Route::resource('/{product}/process', 'ProcessController', [
-        'only' => ['show', 'store', 'update', 'destroy']
+        'only' => [ 'show', 'store', 'update', 'destroy']
     ]);
 });

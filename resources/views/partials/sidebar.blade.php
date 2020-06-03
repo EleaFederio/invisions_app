@@ -20,7 +20,7 @@
                 <a href="{{route('employees.index')}}"><i class="fas fa-address-card"></i>     Employees</a>
             </li>
             <li>
-                <a href="{{route('employees.index')}}"><i class="fas fa-bell"></i>     Notifications</a>
+                <a href="{{url('products_all')}}"><i class="fas fa-calendar-alt"></i>    Schedule</a>
             </li>
             <li>
                 <a href="{{url('settings')}}"><i class="fas fa-tools"></i>     Settings</a>
